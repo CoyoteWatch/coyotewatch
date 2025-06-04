@@ -1,0 +1,222 @@
+:root {
+    --neon-blue: #0ff0fc;
+    --neon-purple: #bc13fe;
+    --dark-bg: #0a0a0a;
+    --darker-bg: #050505;
+    --text: #e0e0e0;
+    --glow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-purple);
+}
+
+body {
+    background: var(--dark-bg);
+    color: var(--text);
+    font-family: 'Roboto Mono', monospace;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+header {
+    text-align: center;
+    padding: 3rem 0;
+    position: relative;
+}
+
+header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 4rem;
+    margin: 0;
+    color: var(--neon-blue);
+    text-shadow: var(--glow);
+    position: relative;
+    animation: flicker 1.5s infinite alternate;
+}
+
+header h1 span {
+    color: var(--neon-purple);
+}
+
+header p {
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    opacity: 0.8;
+}
+
+.neon-border {
+    border: 2px solid var(--neon-blue);
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px var(--neon-blue), 0 0 15px var(--neon-blue);
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.neon-text {
+    color: var(--neon-blue);
+    text-shadow: var(--glow);
+    text-align: center;
+}
+
+.card h2 {
+    color: var(--neon-purple);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.feature-card {
+    background: var(--darker-bg);
+    border: 1px solid rgba(188, 19, 254, 0.3);
+    border-radius: 8px;
+    padding: 1.5rem;
+    width: 250px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(188, 19, 254, 0.2);
+}
+
+.icon {
+    font-size: 2rem;
+    color: var(--neon-blue);
+    margin-bottom: 1rem;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+.how-it-works {
+    margin: 4rem auto;
+    max-width: 800px;
+}
+
+.steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.step {
+    background: rgba(15, 240, 252, 0.05);
+    border-left: 3px solid var(--neon-blue);
+    padding: 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.step span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--neon-purple);
+    margin-right: 10px;
+}
+
+.warning {
+    background: rgba(255, 50, 50, 0.1);
+    border: 1px solid #ff3232;
+    padding: 1rem;
+    max-width: 800px;
+    margin: 3rem auto;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.skull-icon {
+    font-size: 2rem;
+    color: #ff3232;
+    margin-bottom: 1rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(15, 240, 252, 0.2);
+}
+
+.socials {
+    margin-top: 1rem;
+}
+
+.socials a {
+    color: var(--text);
+    font-size: 1.5rem;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.socials a:hover {
+    color: var(--neon-blue);
+}
+
+/* Анимации */
+@keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        text-shadow: var(--glow);
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake {
+    animation: shake 0.5s;
+}
+
+/* Эффект глитча */
+.glitch-effect {
+    position: relative;
+}
+
+.glitch-effect::before {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: var(--neon-purple);
+    z-index: -1;
+    animation: glitch 3s infinite;
+}
+
+@keyframes glitch {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, 3px); }
+    40% { transform: translate(-3px, -3px); }
+    60% { transform: translate(3px, 3px); }
+    80% { transform: translate(3px, -3px); }
+    100% { transform: translate(0); }
+  }
